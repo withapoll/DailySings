@@ -22,10 +22,21 @@
             </a>
           </li>
         </ul>
-        <div class="user-icon">
-          <a class="nav-link" href="#">
+        <div class="user-icon dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <i class="bi bi-person-circle"></i>
           </a>
+          <ul class="dropdown-menu">
+            <li>
+              <router-link class="dropdown-item" to="/login" replace>Login</router-link>
+            </li>
+          </ul>
         </div>
       </div>
       <button
@@ -45,6 +56,7 @@
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 </script>
 
@@ -109,5 +121,18 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 .bg-dark {
   background-color: #131313 !important;
+}
+.dropdown-menu {
+  background-color: #131313;
+  border: none;
+
+  .dropdown-item {
+    color: #fff;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #5f43cb;
+    }
+  }
 }
 </style>
