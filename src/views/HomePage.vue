@@ -5,70 +5,89 @@
   <div class="artist-cards">
     <div class="artist-card">
       <img src="../../public/artist-1.jpg" alt="Artist 1" />
-      <p>Artist 1</p>
+      <p>gu1vazZ 1</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-2.jpg" alt="Artist 2" />
-      <p>Artist 2</p>
+      <p>Lonewj</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-3.jpg" alt="Artist 3" />
-      <p>Artist 3</p>
+      <p>Berry Miracle</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-4.jpg" alt="Artist 4" />
-      <p>Artist 4</p>
+      <p>TRYFG</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-5.jpg" alt="Artist 5" />
-      <p>Artist 5</p>
+      <p>Josodo</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-5.jpg" alt="Artist 6" />
-      <p>Artist 6</p>
+      <p>woee33</p>
     </div>
     <div class="artist-card">
       <img src="../../public/artist-5.jpg" alt="Artist 7" />
-      <p>Artist 7</p>
+      <p>FENDIGLOCK</p>
     </div>
   </div>
-  <div class="new-reviews-text">
-    <h2>Новые Рецензии</h2>
-  </div>
-  <div class="new-reviews-cards">
-    <div class="new-reviews-card">
-      <img src="../../public/review-1.jpg" alt="Review 1" />
-      <p>Review 1</p>
+  <div class="new-reviews">
+    <div class="new-reviews-text">
+      <h2>Новые Рецензии</h2>
     </div>
-    <div class="new-reviews-card">
-      <img src="../../public/review-1.jpg" alt="Review 1" />
-      <p>Review 1</p>
+    <div class="new-reviews-cards">
+      <div class="cards">
+        <NewReviews />
+        <NewReviews />
+      </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import NewReviews from '../components/NewReviews.vue'
+</script>
 
 <style lang="scss" scoped>
 .artist-text {
   text-align: left;
-  margin-top: 2rem;
+  margin-top: 6rem;
   margin-bottom: 2rem;
+  margin-left: 2rem;
 }
 
 .artist-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 .new-reviews-text {
   text-align: left;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-left: 2rem;
 }
+
 .new-reviews-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: auto;
 }
 </style>

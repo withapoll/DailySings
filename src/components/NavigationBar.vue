@@ -7,18 +7,18 @@
       <div class="nav-content d-flex align-items-center">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-house-fill"></i>
+            <a class="nav-link" href="/">
+              <router-link to="/"><i class="bi bi-house-fill"></i></router-link>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-line"></i>
+            <a class="nav-link" href="/feed">
+              <router-link to="/feed"><i class="bi bi-bookmark-fill"></i></router-link>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-search me-2"></i>
+            <a class="nav-link" href="/search">
+              <router-link to="/search"><i class="bi bi-search"></i></router-link>
             </a>
           </li>
         </ul>
@@ -69,6 +69,10 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 .navbar {
   padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 
   .nav-content {
     width: 100%;
@@ -97,7 +101,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
   .bi-person-circle,
   .bi-house-fill,
-  .bi-line,
+  .bi-bookmark-fill,
   .bi-search {
     font-size: 1.7rem;
   }
@@ -107,7 +111,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
   color: #ffffff;
 }
 
-.bi-line:hover {
+.bi-bookmark-fill:hover {
   color: #fff;
 }
 
