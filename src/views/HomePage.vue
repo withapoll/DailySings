@@ -55,6 +55,9 @@ import NewReviews from '../components/NewReviews.vue'
   margin-top: 6rem;
   margin-bottom: 2rem;
   margin-left: 2rem;
+  h2 {
+    color: #d9c6fe;
+  }
 }
 
 .artist-cards {
@@ -76,6 +79,10 @@ import NewReviews from '../components/NewReviews.vue'
   margin-top: 2rem;
   margin-bottom: 2rem;
   margin-left: 2rem;
+  h2 {
+    width: 10rem;
+    color: #fec6c6;
+  }
 }
 
 .new-reviews-cards {
