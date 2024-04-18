@@ -1,30 +1,12 @@
-<script setup>
-import HomePage from '../src/views/HomePage.vue'
-import NavigationBar from '../src/components/NavigationBar.vue'
-</script>
-
 <template>
-  <NavigationBar />
-  <HomePage />
-  <!-- <router-view /> -->
-
-  <!-- rewrite code in App.vueto fix router bag will look like this
-  <template>
-  <div id="app">
+  <div>
     <NavigationBar />
-    <router-view />
+    <RouterView />
   </div>
 </template>
 
-<script>
-import NavigationBar from './components/NavigationBar.vue';
+<script setup>
+import NavigationBar from './components/NavigationBar.vue'
+</script>
 
-export default {
-  components: {
-    NavigationBar,
-  },
-};
-</script> -->
-</template>
-
-<style scoped></style>
+<style lang="scss" scoped></style>
