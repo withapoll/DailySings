@@ -7,19 +7,34 @@
       <div class="nav-content d-flex align-items-center">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">
-              <router-link to="/"><i class="bi bi-house-fill"></i></router-link>
-            </a>
+            <router-link
+              to="/"
+              class="nav-link"
+              :class="{ active: activeIcon === 'home' }"
+              @click="setActiveIcon('home')"
+            >
+              <i class="bi bi-house-fill"></i>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/feed">
-              <router-link to="/feed"><i class="bi bi-bookmark-fill"></i></router-link>
-            </a>
+            <router-link
+              to="/feed"
+              class="nav-link"
+              :class="{ active: activeIcon === 'bookmark' }"
+              @click="setActiveIcon('bookmark')"
+            >
+              <i class="bi bi-bookmark-fill"></i>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/search">
-              <router-link to="/search"><i class="bi bi-search"></i></router-link>
-            </a>
+            <router-link
+              to="/search"
+              class="nav-link"
+              :class="{ active: activeIcon === 'search' }"
+              @click="setActiveIcon('search')"
+            >
+              <i class="bi bi-search"></i>
+            </router-link>
           </li>
         </ul>
         <div class="user-icon dropdown">
@@ -56,8 +71,15 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+
+const activeIcon = ref(null)
+
+const setActiveIcon = (icon) => {
+  activeIcon.value = icon
+}
 </script>
 
 <style lang="scss" scoped>
@@ -79,7 +101,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
   }
 
   .nav-link {
-    color: #fff;
+    color: #424242;
     margin-right: 2rem;
 
     i {
@@ -87,6 +109,14 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
     }
 
     &:hover {
+      color: #fff;
+
+      i {
+        color: #fff;
+      }
+    }
+
+    &.active {
       color: #fff;
 
       i {
@@ -107,25 +137,10 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
   }
 }
 
-.bi-house-fill:hover {
-  color: #ffffff;
-}
-
-.bi-bookmark-fill:hover {
-  color: #fff;
-}
-
-.bi-search:hover {
-  color: #fff;
-}
-
-.bi-person-circle:hover {
-  color: #fff;
-}
-
 .bg-dark {
   background-color: #131313 !important;
 }
+
 .dropdown-menu {
   background-color: #131313;
   border: none;
