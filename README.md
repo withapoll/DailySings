@@ -5,7 +5,7 @@ App preview
 #
 ![buttons](https://github.com/withapoll/DailySings/assets/59768263/d835201f-21d9-445a-8d36-82b26f20791d)
 #
-![home page](https://github.com/withapoll/DailySings/assets/59768263/53e3b1d6-b8a7-40bc-af8e-15db38a65219)
+![home page](https://github.com/withapoll/DailySings/assets/59768263/076456d2-388a-42e8-9829-105ea54b0bb3)
 #
 ![reviews page](https://github.com/withapoll/DailySings/assets/59768263/3240ffcb-727e-4268-8c57-6de8a69e5ec2)
 #
