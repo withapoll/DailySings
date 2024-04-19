@@ -43,10 +43,12 @@
       </div>
     </div>
   </div>
+  <BottomPage />
 </template>
 
 <script setup>
 import NewReviews from '../components/NewReviews.vue'
+import BottomPage from '../components/BottomPage.vue'
 </script>
 
 <style lang="scss" scoped>

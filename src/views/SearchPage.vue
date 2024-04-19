@@ -9,7 +9,7 @@
     </ul>
   </div>
   <div class="no-results" v-else>
-    <p>Ничего не найдено</p>
+    <h3>Ничего не найдено</h3>
   </div>
 </template>
 
@@ -55,6 +55,7 @@ export default {
     border-radius: 1rem;
     padding: 1rem;
     width: 807px;
+    outline: none;
   }
 }
 
