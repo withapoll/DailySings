@@ -1,39 +1,54 @@
 <template>
   <div class="new-reviews-cards">
-    <div class="new-reviews-card">
+    <div class="new-reviews-card" v-for="review in reviews" :key="review.id">
       <div class="card-header">
         <div class="user">
-          <img src="../../public/user-1.jpg" alt="User 1" />
+          <i class="bi bi-person-circle"></i>
           <div class="user-info">
-            <p>Пользователь</p>
-            <p>2 дня назад</p>
+            <p>{{ review.username }}</p>
+            <p>{{ review.createdAt }}</p>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <h3>Заголовок</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Rhoncus eu nibh pretium lacus ac. Quis quam ut
-          nulla sagittis integer vehicula amet vulputate adipiscing. Venenatis turpis nec massa ut
-          in. Lectus lorem aenean placerat vestibulum quis vulputate odio elementum mi. Erat
-          ultricies felis eu aenean nulla sit vel tortor ullamcorper. Libero egestas integer rhoncus
-          nullam nisl. Massa scelerisque pellentesque ultrices sagittis. Integer nisi tincidunt
-          phasellus at a mauris sit. Nisl neque fusce risus id. Laoreet at tempor est velit vitae.
-          Vitae velit tortor nec at rutrum vel quis aliquet lectus. Facilisis integer felis molestie
-          nunc etiam. A auctor purus nisl arcu. Tincidunt elementum justo egestas in mauris
-          interdum. Malesuada donec vitae fringilla auctor. Volutpat enim etiam sociis tortor urna
-          eleifend. Nec in semper enim morbi maecenas fames sapien magna. A venenatis pellentesque
-          purus volutpat. Elit ut dapibus risus potenti pulvinar in arcu erat est. Vitae tristique
-          facilisis tellus nunc eget. Sagittis viverra ultrices nisl sit pretium. Viverra gravida id
-          morbi a convallis. Suscipit morbi varius metus lacinia. Nisl elementum praesent eget
-          tincidunt.
-        </p>
+        <h3>{{ review.title }}</h3>
+        <p v-if="review.showFullReview">{{ review.content }}</p>
+        <p v-else>{{ truncatedContent(review.content) }}</p>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <i class="bi bi-eye-fill" @click="toggleReview(review)"></i>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
+const reviews = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/api/reviews') // replace with API endpoint
+    reviews.value = response.data.map((review) => ({
+      ...review,
+      showFullReview: false
+    }))
+  } catch (error) {
+    console.error('Error fetching reviews:', error)
+  }
+})
+
+const toggleReview = (review) => {
+  review.showFullReview = !review.showFullReview
+}
+
+const truncatedContent = (content) => {
+  return content.slice(0, 100) + '...'
+}
+</script>
 
 <style lang="scss" scoped>
 .new-reviews-cards {
@@ -74,13 +89,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
-}
-
-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 1rem;
+  i {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #ffffff;
+    font-size: 1.7rem;
+  }
 }
 
 .user-info {
@@ -107,5 +121,23 @@ img {
   }
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  hr {
+    width: 100%;
+    border: 1px solid #ffffff;
+    margin: 0 1rem;
+  }
+
+  i {
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
 }
 </style>

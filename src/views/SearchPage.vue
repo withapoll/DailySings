@@ -25,7 +25,7 @@ export default {
         { id: 4, name: 'TRYFG' },
         { id: 5, name: 'Josodo' },
         { id: 6, name: 'woee33' },
-        { id: 7, name: 'sdf' }
+        { id: 7, name: 'FENDIGLOCK' }
       ]
     }
   },

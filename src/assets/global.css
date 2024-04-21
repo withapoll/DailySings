@@ -22,7 +22,7 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-  scrollbar-width: none; /* For Firefox */
+  /* scrollbar-width: none; For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 

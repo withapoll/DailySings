@@ -38,8 +38,7 @@
     </div>
     <div class="new-reviews-cards">
       <div class="cards">
-        <NewReviews />
-        <NewReviews />
+        <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" />
       </div>
     </div>
   </div>
@@ -47,8 +46,24 @@
 </template>
 
 <script setup>
+import axios from 'axios'
 import NewReviews from '../components/NewReviews.vue'
 import BottomPage from '../components/BottomPage.vue'
+
+import { ref, onMounted } from 'vue'
+
+const latestReviews = ref([])
+
+const fetchLatestReviews = async () => {
+  try {
+    const response = await axios.get('/api/latest-reviews/')
+    latestReviews.value = response.data.reviews
+  } catch (error) {
+    console.error('Error fetching latest reviews:', error)
+  }
+}
+
+onMounted(fetchLatestReviews)
 </script>
 
 <style lang="scss" scoped>
