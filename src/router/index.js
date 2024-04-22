@@ -13,11 +13,11 @@ const routes = [
     name: 'Login',
     component: () => import('../views/LoginForm.vue')
   },
-  // {
-  //   path: '/register',
-  //   name: 'Register',
-  //   component: () => import('../views/RegisterForm.vue')
-  // }
+  {
+    path: '/registration',
+    name: 'Registration',
+    component: () => import('../views/RegistrationForm.vue')
+  },
   {
     path: '/feed',
     name: 'Feed',
@@ -32,12 +32,25 @@ const routes = [
     path: '/artist/:id',
     name: 'Artist',
     component: ArtistView
+  },
+  {
+    path: '/add-review',
+    name: 'AddReview',
+    component: () => import('../views/AddReview.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+// Global navigation guard
+router.beforeEach((to, from, next) => {
+  // Update the navigation bar component's state or data here
+  // For example, set the active route or highlight the appropriate navigation item
+
+  next() // Always call next() to continue the navigation
 })
 
 export default router

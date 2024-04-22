@@ -1,42 +1,35 @@
 <template>
   <div class="search-bar">
-    <input type="text" v-model="searchTerm" placeholder="Поиск" />
+    <input type="text" v-model="searchTerm" placeholder="Искать Исполнителя" />
   </div>
   <div class="search-results" v-if="filteredArtists.length > 0">
     <h2>Исполнители</h2>
-    <ul>
-      <li v-for="artist in filteredArtists" :key="artist.id">{{ artist.name }}</li>
-    </ul>
+    <ArtistsCards :artists="filteredArtists" />
   </div>
   <div class="no-results" v-else>
     <h3>Ничего не найдено</h3>
   </div>
 </template>
+<script setup>
+import { ref, computed } from 'vue'
+import ArtistsCards from '../components/ArtistsCards.vue'
 
-<script>
-export default {
-  data() {
-    return {
-      searchTerm: '',
-      artists: [
-        { id: 1, name: 'gu1vazZ' },
-        { id: 2, name: 'Lonewj' },
-        { id: 3, name: 'Berry Miracle' },
-        { id: 4, name: 'TRYFG' },
-        { id: 5, name: 'Josodo' },
-        { id: 6, name: 'woee33' },
-        { id: 7, name: 'FENDIGLOCK' }
-      ]
-    }
-  },
-  computed: {
-    filteredArtists() {
-      return this.artists.filter((artist) => {
-        return artist.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      })
-    }
-  }
-}
+let searchTerm = ref('')
+let artists = [
+  { id: 1, name: 'gu1vazZ' },
+  { id: 2, name: 'Lonewj' },
+  { id: 3, name: 'Berry Miracle' },
+  { id: 4, name: 'TRYFG' },
+  { id: 5, name: 'Josodo' },
+  { id: 6, name: 'woee33' },
+  { id: 7, name: 'FENDIGLOCK' }
+]
+
+let filteredArtists = computed(() => {
+  return artists.filter((artist) => {
+    return artist.name.toLowerCase().includes(searchTerm.value.toLowerCase())
+  })
+})
 </script>
 
 <style lang="scss" scoped>

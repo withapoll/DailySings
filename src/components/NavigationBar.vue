@@ -7,32 +7,17 @@
       <div class="nav-content d-flex align-items-center">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <router-link
-              to="/"
-              class="nav-link"
-              :class="{ active: activeIcon === 'home' }"
-              @click="setActiveIcon('home')"
-            >
+            <router-link to="/" exact-active-class="active" class="nav-link">
               <i class="bi bi-house-fill"></i>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link
-              to="/feed"
-              class="nav-link"
-              :class="{ active: activeIcon === 'bookmark' }"
-              @click="setActiveIcon('bookmark')"
-            >
+            <router-link to="/feed" active-class="active" class="nav-link">
               <i class="bi bi-bookmark-fill"></i>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link
-              to="/search"
-              class="nav-link"
-              :class="{ active: activeIcon === 'search' }"
-              @click="setActiveIcon('search')"
-            >
+            <router-link to="/search" active-class="active" class="nav-link">
               <i class="bi bi-search"></i>
             </router-link>
           </li>
@@ -71,15 +56,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-
-const activeIcon = ref(null)
-
-const setActiveIcon = (icon) => {
-  activeIcon.value = icon
-}
 </script>
 
 <style lang="scss" scoped>

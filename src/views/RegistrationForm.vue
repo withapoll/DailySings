@@ -1,15 +1,15 @@
 <template>
-  <div class="login-form">
-    <div class="login-form-conteiner">
-      <div class="login-form-header">
-        <div class="login-form-logo">
+  <div class="reg-form">
+    <div class="reg-form-conteiner">
+      <div class="reg-form-header">
+        <div class="reg-form-logo">
           <router-link to="/">
             <i class="bi bi-arrow-left"></i>
           </router-link>
           <h3>DailySings</h3>
         </div>
       </div>
-      <div class="login">
+      <div class="reg">
         <form>
           <div class="form-input">
             <label for="email">Ваш Логин</label>
@@ -17,8 +17,7 @@
             <label for="password">Ваш пароль</label>
             <input type="password" id="password" />
             <div class="buttons">
-              <button>Войти</button>
-              <button @click="$router.push('/registration')">Зарегистрироваться</button>
+              <button>Зарегистрироваться</button>
             </div>
           </div>
         </form>
@@ -34,13 +33,13 @@ import BottomPage from '../components/BottomPage.vue'
 </script>
 
 <style lang="scss" scoped>
-.login {
+.reg {
   display: flex;
   flex-direction: row;
   align-items: left;
   gap: 5rem;
 }
-.login-form {
+.reg-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,14 +47,14 @@ import BottomPage from '../components/BottomPage.vue'
   p {
     font-size: 2rem;
   }
-  .login-form-conteiner {
+  .reg-form-conteiner {
     background-color: #01031c;
     padding: 2rem;
     border-radius: 2rem;
     width: 807px;
     height: 370px;
   }
-  .login-form-header {
+  .reg-form-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +63,7 @@ import BottomPage from '../components/BottomPage.vue'
       font-size: 1.5rem;
     }
   }
-  .login-form-logo {
+  .reg-form-logo {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
