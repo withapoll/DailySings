@@ -1,19 +1,59 @@
 <template>
   <div class="add-review-form">
     <h3>Ваша рецензия</h3>
-    <form>
+    <p>Добавление рецензии для {{ artist.name }}</p>
+    <form @submit.prevent="submitReview">
       <div class="form-input">
         <label for="title">Заголовок</label>
-        <input type="text" id="title" />
+        <input type="text" id="title" v-model="reviewTitle" required />
         <label for="content">Текст</label>
-        <textarea id="content"></textarea>
-        <button>Отправить рецензию</button>
+        <textarea id="content" v-model="reviewContent" required></textarea>
+        <button type="submit">Отправить рецензию</button>
       </div>
     </form>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps, ref } from 'vue'
+
+const props = defineProps({
+  artist: {
+    type: Object,
+    required: true
+  }
+})
+
+const reviewTitle = ref('')
+const reviewContent = ref('')
+
+const submitReview = async () => {
+  const review = {
+    title: reviewTitle.value,
+    content: reviewContent.value,
+    artist: props.artist
+  }
+
+  // Send the review data to your server or API
+  try {
+    await sendReviewToServer(review)
+    // Reset form fields or show success message
+    reviewTitle.value = ''
+    reviewContent.value = ''
+    alert('Review submitted successfully!')
+  } catch (error) {
+    console.error('Error submitting review:', error)
+    alert('Error submitting review. Please try again.')
+  }
+}
+
+// Replace this with your actual function to send the review data to your server or API
+const sendReviewToServer = async (review) => {
+  // Simulating server request
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  console.log('Review data:', review)
+}
+</script>
 
 <style lang="scss" scoped>
 .add-review-form {

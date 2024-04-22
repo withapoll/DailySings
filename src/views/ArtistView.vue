@@ -8,13 +8,12 @@
     <div v-else>
       <p>Loading artist details...</p>
     </div>
+    <button @click="navigateToAddReview">Оставить рецензию</button>
   </div>
-  <button @click="$router.push('/add-review')">Добавить рецензию</button> //configure that button
-  will redirect me to add review page with artist id and his data
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
 
 export default {
@@ -27,6 +26,7 @@ export default {
   },
   setup(props) {
     const route = useRoute()
+    const router = useRouter()
     const artist = ref(null)
 
     onMounted(() => {
@@ -41,8 +41,14 @@ export default {
       }
     }
 
+    const navigateToAddReview = () => {
+      const artistId = route.params.id
+      router.push({ name: 'AddReview', params: { artistId } })
+    }
+
     return {
-      artist
+      artist,
+      navigateToAddReview
     }
   }
 }

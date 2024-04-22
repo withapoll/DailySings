@@ -34,8 +34,9 @@ const routes = [
     component: ArtistView
   },
   {
-    path: '/add-review',
+    path: '/add-review/:artistId',
     name: 'AddReview',
+    props: true,
     component: () => import('../views/AddReview.vue')
   }
 ]

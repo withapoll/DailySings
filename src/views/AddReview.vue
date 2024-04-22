@@ -4,12 +4,50 @@
     <h3>Добавить рецензию</h3>
   </div>
   <div class="add-review">
-    <AddReviewForm />
+    <h2 v-if="artist">Add Review for {{ artist.name }}</h2>
+    <p v-else>Loading artist details...</p>
+    <AddReviewForm v-if="artist" :artist="artist" />
   </div>
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
+import { ref, onMounted } from 'vue'
 import AddReviewForm from '../components/AddReviewForm.vue'
+
+const route = useRoute()
+const artist = ref(null)
+
+onMounted(() => {
+  const artistId = route.params.artistId
+  fetchArtistData(artistId)
+})
+
+const fetchArtistData = async (artistId) => {
+  const fetchedArtist = await fetchArtistDataFromAPI(artistId)
+  artist.value = fetchedArtist
+}
+
+const fetchArtistDataFromAPI = async (artistId) => {
+  // Simulating data fetching delay
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  // Your actual list of artists
+  const artists = [
+    { id: '1', name: 'gu1vazZ' },
+    { id: '2', name: 'Lonewj' },
+    { id: '3', name: 'Berry Miracle' },
+    { id: '4', name: 'TRYFG' },
+    { id: '5', name: 'Josodo' },
+    { id: '6', name: 'woee33' },
+    { id: '7', name: 'FENDIGLOCK' }
+  ]
+
+  // Find the artist with the matching ID
+  const artist = artists.find((artist) => artist.id === artistId)
+
+  return artist
+}
 </script>
 
 <style lang="scss" scoped>
