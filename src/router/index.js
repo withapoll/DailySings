@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+import ArtistView from '../views/ArtistView.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: () => import('../views/SearchPage.vue')
+  },
+  {
+    path: '/artist/:id',
+    name: 'Artist',
+    component: ArtistView
   }
 ]
 
