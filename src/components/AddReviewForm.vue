@@ -47,7 +47,7 @@ const submitReview = async () => {
   }
 }
 
-// Replace this with your actual function to send the review data to your server or API
+// Replace this with actual function to send the review data to server or API
 const sendReviewToServer = async (review) => {
   // Simulating server request
   await new Promise((resolve) => setTimeout(resolve, 1000))

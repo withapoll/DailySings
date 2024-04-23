@@ -32,7 +32,7 @@ const fetchArtistDataFromAPI = async (artistId) => {
   // Simulating data fetching delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
-  // Your actual list of artists
+  // actual list of artists
   const artists = [
     { id: '1', name: 'gu1vazZ' },
     { id: '2', name: 'Lonewj' },
