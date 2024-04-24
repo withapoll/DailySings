@@ -26,6 +26,7 @@
 
 <style lang="scss" scoped>
 .bottom-page {
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -22,6 +22,11 @@
         <div class="cards">
           <!-- <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" /> -->
           <NewReviews />
+          <div class="old-reviews-cards">
+            <div class="old-cards">
+              <OldReviews />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +37,7 @@
 
 <script setup>
 // import axios from 'axios'
+import OldReviews from '../components/OldReviews.vue'
 import NewReviews from '../components/NewReviews.vue'
 import BottomPage from '../components/BottomPage.vue'
 import gu1vazZ from '../assets/DailySings Stars/artists images/gu1vazZ.jpg'
@@ -120,6 +126,18 @@ const navigateToArtist = (artistId) => {
 }
 
 .cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+
+.old-reviews-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.old-cards {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

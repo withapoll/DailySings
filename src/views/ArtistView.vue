@@ -26,12 +26,18 @@
         <NewReviews />
       </div>
     </div>
+    <div class="old-reviews-cards">
+      <div class="old-cards">
+        <OldReviews />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
+import OldReviews from '../components/OldReviews.vue'
 import TrackList from '../components/TrackList.vue'
 import NewReviews from '@/components/NewReviews.vue'
 import gu1vazZ from '../assets/DailySings Stars/artists images/gu1vazZ.jpg'
@@ -109,6 +115,17 @@ const navigateToAddReview = () => {
 
 const artistToExpose = artist
 const navigateToAddReviewToExpose = navigateToAddReview
+
+const reviews = ref([
+  {
+    id: 1,
+    username: 'denis@mail.ru',
+    title: 'Лучший Исполнитель! Подпивайтесь на gu1vazZ!',
+    content: 'Content1',
+    createdAt: '2022-01-01',
+    artistId: 1
+  }
+])
 </script>
 
 <style scoped>
@@ -192,5 +209,22 @@ button {
   flex-direction: row;
   justify-content: space-between;
   overflow-x: auto;
+}
+
+.old-reviews-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.old-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: auto;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+.track-list {
+  margin-bottom: 2rem;
 }
 </style>

@@ -35,7 +35,7 @@ const submitReview = async () => {
     content: reviewContent.value,
     artist: props.artist,
     username: localStorage.getItem('username'),
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toLocaleDateString()
   }
 
   store.commit('addReview', review)

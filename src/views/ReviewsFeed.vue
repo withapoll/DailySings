@@ -5,6 +5,7 @@
   </div>
   <div class="feed">
     <NewReviews v-for="review in reviews" :key="review.id" :review="review" />
+    <OldReviews />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import NewReviews from '../components/NewReviews.vue'
+import OldReviews from '../components/OldReviews.vue'
 
 const store = useStore()
 const reviews = computed(() => store.state.reviews)

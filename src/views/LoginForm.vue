@@ -55,7 +55,7 @@ const handleLogin = () => {
 
       router.push('/')
     } else {
-      alert('Invalid credentials')
+      alert('Пользователя с такими данными не существует')
     }
 
     isLoading.value = false
