@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 const getHeaderColor = (id) => {
   switch (id) {
     case 1:
@@ -43,23 +42,23 @@ const reviews = [
     id: 1,
     username: 'denis@mail.ru',
     title: 'Лучший Исполнитель! Подпивайтесь на gu1vazZ!',
-    content: 'Content1',
+    content: 'Очень Классные Треки',
     createdAt: '2022-01-01',
     showFullReview: false
   },
   {
     id: 2,
     username: 'polina@mail.me',
-    title: 'Title2',
-    content: 'Content2',
+    title: 'Крутой трек Bless от Lonewj',
+    content: 'Крутой трек, мне очень понравился',
     createdAt: '2022-01-02',
     showFullReview: false
   },
   {
     id: 3,
     username: 'lera@mail.corp',
-    title: 'Title3',
-    content: 'Content3',
+    title: 'Классные обложки у FENDIGLOCK',
+    content: 'И Треки тоже!',
     createdAt: '2022-01-03',
     showFullReview: false
   }
