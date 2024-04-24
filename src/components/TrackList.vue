@@ -6,8 +6,10 @@
     <div class="track-list">
       <div class="track" v-for="track in filteredTracks" :key="track.id">
         <img :src="track.imageUrl" :alt="track.name" />
-        <h4>{{ track.name }}</h4>
-        <p>{{ track.artistName }}</p>
+        <div class="track-info">
+          <h4>{{ track.name }}</h4>
+          <p>{{ track.artistName }}</p>
+        </div>
         <audio controls>
           <source :src="track.src" type="audio/mpeg" />
           Your browser does not support the audio element.
@@ -314,6 +316,7 @@ const filteredTracks = computed(() => {
 .track-list-container {
   margin-top: 2rem;
   margin-left: 2rem;
+  margin-right: 2rem;
 }
 .track-list {
   display: grid;
@@ -322,10 +325,22 @@ const filteredTracks = computed(() => {
 }
 
 .track {
+  width: 100%;
   background-color: #191919;
   padding: 1rem;
   border-radius: 0.5rem;
   color: #fff;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 10%;
+    margin-right: 1rem;
+  }
+
+  .track-info {
+    margin-right: 1rem;
+  }
 
   h4 {
     margin-bottom: 0.5rem;
@@ -334,8 +349,29 @@ const filteredTracks = computed(() => {
   p {
     margin-bottom: 0.5rem;
   }
-  img {
-    width: 10%;
-  }
+}
+audio {
+  width: 17rem;
+  border-radius: 0.1rem;
+  padding: 10px;
+  background-color: #191919;
+  color: #fff;
+  margin-left: 2rem;
+}
+
+audio::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #007bff;
+  cursor: pointer;
+}
+
+audio::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  border-radius: 2.5px;
 }
 </style>

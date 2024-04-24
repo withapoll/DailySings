@@ -34,5 +34,6 @@ const reviews = computed(() => store.state.reviews)
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 </style>

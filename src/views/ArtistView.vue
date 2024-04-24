@@ -21,14 +21,16 @@
     <div class="new-reviews-title">
       <h3>Рецензии</h3>
     </div>
-    <div class="new-reviews-cards">
-      <div class="cards">
-        <NewReviews />
+    <div class="cards">
+      <div class="new-reviews-cards">
+        <div class="cards">
+          <NewReviews />
+        </div>
       </div>
-    </div>
-    <div class="old-reviews-cards">
-      <div class="old-cards">
-        <OldReviews />
+      <div class="old-reviews-cards">
+        <div class="old-cards">
+          <OldReviews />
+        </div>
       </div>
     </div>
   </div>
@@ -115,17 +117,6 @@ const navigateToAddReview = () => {
 
 const artistToExpose = artist
 const navigateToAddReviewToExpose = navigateToAddReview
-
-const reviews = ref([
-  {
-    id: 1,
-    username: 'denis@mail.ru',
-    title: 'Лучший Исполнитель! Подпивайтесь на gu1vazZ!',
-    content: 'Content1',
-    createdAt: '2022-01-01',
-    artistId: 1
-  }
-])
 </script>
 
 <style scoped>

@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 const getHeaderColor = (id) => {
   switch (id) {
     case 1:

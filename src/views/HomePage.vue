@@ -123,6 +123,7 @@ const navigateToArtist = (artistId) => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  // margin-left: 2rem;
 }
 
 .cards {
@@ -130,6 +131,7 @@ const navigateToArtist = (artistId) => {
   flex-direction: row;
   justify-content: space-between;
   overflow-x: auto;
+  gap: 2rem;
 }
 
 .old-reviews-cards {
