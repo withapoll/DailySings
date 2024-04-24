@@ -16,6 +16,7 @@
 
 <script setup>
 import { defineProps, ref } from 'vue'
+import { useStore } from 'vuex'
 
 const props = defineProps({
   artist: {
@@ -24,6 +25,7 @@ const props = defineProps({
   }
 })
 
+const store = useStore()
 const reviewTitle = ref('')
 const reviewContent = ref('')
 
@@ -31,27 +33,15 @@ const submitReview = async () => {
   const review = {
     title: reviewTitle.value,
     content: reviewContent.value,
-    artist: props.artist
+    artist: props.artist,
+    username: localStorage.getItem('username'),
+    createdAt: new Date().toISOString()
   }
 
-  // Send the review data to your server or API
-  try {
-    await sendReviewToServer(review)
-    // Reset form fields or show success message
-    reviewTitle.value = ''
-    reviewContent.value = ''
-    alert('Review submitted successfully!')
-  } catch (error) {
-    console.error('Error submitting review:', error)
-    alert('Error submitting review. Please try again.')
-  }
-}
+  store.commit('addReview', review)
 
-// Replace this with actual function to send the review data to server or API
-const sendReviewToServer = async (review) => {
-  // Simulating server request
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-  console.log('Review data:', review)
+  reviewTitle.value = ''
+  reviewContent.value = ''
 }
 </script>
 

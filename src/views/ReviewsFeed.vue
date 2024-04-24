@@ -1,31 +1,20 @@
+// ReviewFeed.vue
 <template>
   <div class="feed-title">
     <h2>Лента Рецензий</h2>
   </div>
   <div class="feed">
-    <!-- <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" /> -->
-    <NewReviews />
-    <NewReviews />
+    <NewReviews v-for="review in reviews" :key="review.id" :review="review" />
   </div>
 </template>
 
 <script setup>
-import axios from 'axios'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import NewReviews from '../components/NewReviews.vue'
-import { ref, onMounted } from 'vue'
 
-const latestReviews = ref([])
-
-const fetchLatestReviews = async () => {
-  try {
-    const response = await axios.get('/api/latest-reviews/')
-    latestReviews.value = response.data.reviews
-  } catch (error) {
-    console.error('Error fetching latest reviews:', error)
-  }
-}
-
-onMounted(fetchLatestReviews)
+const store = useStore()
+const reviews = computed(() => store.state.reviews)
 </script>
 
 <style lang="scss" scoped>
