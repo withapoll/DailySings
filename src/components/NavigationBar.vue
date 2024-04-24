@@ -33,8 +33,12 @@
             <i class="bi bi-person-circle"></i>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <router-link class="dropdown-item" to="/login" replace>Login</router-link>
+            <li v-if="!isLoggedIn">
+              <router-link class="dropdown-item" to="/login" replace>Войти</router-link>
+            </li>
+            <li v-else>
+              <a class="dropdown-item">{{ username }}</a>
+              <a class="dropdown-item" @click="handleLogout">Выйти</a>
             </li>
           </ul>
         </div>
@@ -56,8 +60,26 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+
+const username = ref('')
+const isLoggedIn = ref(false)
+
+onMounted(() => {
+  const storedUsername = localStorage.getItem('username')
+  if (storedUsername) {
+    username.value = storedUsername
+    isLoggedIn.value = true
+  }
+})
+
+const handleLogout = () => {
+  localStorage.removeItem('username')
+  username.value = ''
+  isLoggedIn.value = false
+}
 </script>
 
 <style lang="scss" scoped>

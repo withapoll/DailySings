@@ -20,7 +20,8 @@
       </div>
       <div class="new-reviews-cards">
         <div class="cards">
-          <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" />
+          <!-- <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" /> -->
+          <NewReviews />
         </div>
       </div>
     </div>
@@ -30,7 +31,7 @@
 </template>
 
 <script setup>
-import axios from 'axios'
+// import axios from 'axios'
 import NewReviews from '../components/NewReviews.vue'
 import BottomPage from '../components/BottomPage.vue'
 import gu1vazZ from '../assets/DailySings Stars/artists images/gu1vazZ.jpg'
@@ -40,7 +41,7 @@ import TRYFG from '../assets/DailySings Stars/artists images/TRYFG.jpg'
 import Josodo from '../assets/DailySings Stars/artists images/Josodo.jpg'
 import woee33 from '../assets/DailySings Stars/artists images/woee33.jpg'
 import FENDIGLOCK from '../assets/DailySings Stars/artists images/FENDIGLOCK.jpg'
-import { ref, onMounted } from 'vue'
+// import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -58,17 +59,17 @@ const navigateToArtist = (artistId) => {
   router.push({ name: 'Artist', params: { id: artistId } })
 }
 
-const latestReviews = ref([])
-const fetchLatestReviews = async () => {
-  try {
-    const response = await axios.get('/api/latest-reviews/')
-    latestReviews.value = response.data.reviews
-  } catch (error) {
-    console.error('Error fetching latest reviews:', error)
-  }
-}
+// const latestReviews = ref([])
+// const fetchLatestReviews = async () => {
+//   try {
+//     const response = await axios.get('/api/latest-reviews/')
+//     latestReviews.value = response.data.reviews
+//   } catch (error) {
+//     console.error('Error fetching latest reviews:', error)
+//   }
+// }
 
-onMounted(fetchLatestReviews)
+// onMounted(fetchLatestReviews)
 </script>
 
 <style lang="scss" scoped>

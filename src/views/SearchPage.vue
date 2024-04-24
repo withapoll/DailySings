@@ -1,18 +1,21 @@
 <template>
-  <div class="search-bar">
-    <input type="text" v-model="searchTerm" placeholder="Искать Исполнителя" />
-  </div>
-  <div class="search-results" v-if="filteredArtists.length > 0">
-    <h2>Исполнители</h2>
-    <ArtistsCards :artists="filteredArtists" />
-  </div>
-  <div class="no-results" v-else>
-    <h3>Ничего не найдено</h3>
+  <div>
+    <div class="search-bar">
+      <input type="text" v-model="searchTerm" placeholder="Искать Исполнителя" />
+    </div>
+    <div class="search-results" v-if="filteredArtists.length > 0">
+      <h2>Исполнители</h2>
+      <ArtistCards :artists="filteredArtists" />
+    </div>
+    <div class="no-results" v-else>
+      <h3>Ничего не найдено</h3>
+    </div>
   </div>
 </template>
+
 <script setup>
 import { ref, computed } from 'vue'
-import ArtistsCards from '../components/ArtistsCards.vue'
+import ArtistCards from '../components/ArtistsCards.vue'
 
 let searchTerm = ref('')
 let artists = [
@@ -32,7 +35,7 @@ let filteredArtists = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .search-bar {
   display: flex;
   flex-direction: column;
@@ -58,19 +61,19 @@ let filteredArtists = computed(() => {
     margin-left: 2rem;
   }
 
-  ul {
+  .artists-cards {
     display: flex;
-    flex-direction: row;
-    align-items: left;
-    list-style: none;
-    margin: 1rem;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  li {
-    margin-bottom: 0.5rem;
+  .artist-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
   }
 }
+
 .no-results {
   text-align: left;
   margin-top: 2rem;

@@ -3,7 +3,9 @@
     <h2>Лента Рецензий</h2>
   </div>
   <div class="feed">
-    <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" />
+    <!-- <NewReviews v-for="review in latestReviews" :key="review.id" :review="review" /> -->
+    <NewReviews />
+    <NewReviews />
   </div>
 </template>
 

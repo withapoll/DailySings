@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import gu1vazZ from '../assets/DailySings Stars/artists images/gu1vazZ.jpg'
 import Berry_Miracle from '../assets/DailySings Stars/artists images/Berry Miracle.jpg'
 import Lonewj from '../assets/DailySings Stars/artists images/Lonewj.png'
@@ -21,9 +22,8 @@ import Josodo from '../assets/DailySings Stars/artists images/Josodo.jpg'
 import woee33 from '../assets/DailySings Stars/artists images/woee33.jpg'
 import FENDIGLOCK from '../assets/DailySings Stars/artists images/FENDIGLOCK.jpg'
 
-import { useRouter } from 'vue-router'
-
 const router = useRouter()
+
 const artists = [
   { id: 1, name: 'gu1vazZ', imageUrl: gu1vazZ, bio: 'Bio for gu1vazZ 1' },
   { id: 2, name: 'Lonewj', imageUrl: Lonewj, bio: 'Bio for gu1vazZ 3' },

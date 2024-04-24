@@ -10,14 +10,17 @@
         </div>
       </div>
       <div class="login">
-        <form>
+        <form @submit.prevent="handleLogin">
           <div class="form-input">
             <label for="email">Ваш Логин</label>
-            <input type="email" id="email" />
+            <input type="email" id="email" v-model="email" />
             <label for="password">Ваш пароль</label>
-            <input type="password" id="password" />
+            <input type="password" id="password" v-model="password" />
             <div class="buttons">
-              <button>Войти</button>
+              <button type="submit" :disabled="isLoading">
+                <span v-if="isLoading">Loading...</span>
+                <span v-else>Войти</span>
+              </button>
               <button @click="$router.push('/registration')">Зарегистрироваться</button>
             </div>
           </div>
@@ -30,7 +33,34 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import BottomPage from '../components/BottomPage.vue'
+
+const router = useRouter()
+const email = ref('')
+const password = ref('')
+const isLoading = ref(false)
+
+const handleLogin = () => {
+  isLoading.value = true
+
+  const demoEmail = 'polunin.me@gmail.com'
+  const demoPassword = 'password'
+
+  setTimeout(() => {
+    // Simulate network delay
+    if (email.value === demoEmail && password.value === demoPassword) {
+      localStorage.setItem('username', email.value)
+
+      router.push('/')
+    } else {
+      alert('Invalid credentials')
+    }
+
+    isLoading.value = false
+  }, 2000)
+}
 </script>
 
 <style lang="scss" scoped>
