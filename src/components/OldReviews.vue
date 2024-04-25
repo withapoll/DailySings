@@ -43,15 +43,15 @@ const reviews = [
     username: 'denis@mail.ru',
     title: 'Лучший Исполнитель! Подпивайтесь на gu1vazZ!',
     content: 'Очень Классные Треки',
-    createdAt: '2022-01-01',
+    createdAt: '25/02/2024',
     showFullReview: false
   },
   {
     id: 2,
     username: 'polina@mail.me',
     title: 'Крутой трек Bless от Lonewj',
-    content: 'Крутой трек, мне очень понравился',
-    createdAt: '2022-01-02',
+    content: 'Крутой трек, мне очень понравился!',
+    createdAt: '21/01/2024',
     showFullReview: false
   },
   {
@@ -59,7 +59,7 @@ const reviews = [
     username: 'lera@mail.corp',
     title: 'Классные обложки у FENDIGLOCK',
     content: 'И Треки тоже!',
-    createdAt: '2022-01-03',
+    createdAt: '22/04/2024',
     showFullReview: false
   }
 ]
