@@ -4,7 +4,7 @@
     <h3>Добавить рецензию</h3>
   </div>
   <div class="add-review">
-    <h2 v-if="artist">Add Review for {{ artist.name }}</h2>
+    <h2 v-if="artist">{{ artist.name }}</h2>
     <p v-else>Loading artist details...</p>
     <AddReviewForm v-if="artist" :artist="artist" />
   </div>
@@ -67,5 +67,9 @@ const fetchArtistDataFromAPI = async (artistId) => {
     font-size: 1.5rem;
     color: #d9c6fe;
   }
+}
+.add-review {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
 }
 </style>

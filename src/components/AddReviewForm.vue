@@ -46,9 +46,8 @@ const submitReview = async () => {
 </script>
 
 <style lang="scss" scoped>
-.add-review-form {
-  margin-left: 2rem;
-}
+// .add-review-form {
+// }
 .form-input {
   display: flex;
   flex-direction: column;
